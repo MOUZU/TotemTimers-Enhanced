@@ -1,0 +1,9 @@
+## Interface: 11200
+## Title: TotemTimers |cff7f7fffEnhanced|r
+## Notes: Melki's Totem Timers w/ Totem Expiration & Tick Timer - Enhanced by LYQ
+## Version: 1.1
+## Author: LYQ (Orig by: Grumpey / Zulah )
+## SavedVariables: TTData, TTActiveTotems
+## OptionalDeps: Debug
+## Dependencies: 
+TotemTimers.xml
