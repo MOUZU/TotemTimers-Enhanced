@@ -2,7 +2,18 @@
 This is a modified version of TotemTimers, a World of Warcraft AddOn (1.12.1) which keeps track for a Shaman which Totem he 
 used and how long it'll last. With this modification it will also display when the next Tick of it comes. 
 For Example when the next Windfury Buff of your Windfury Totem will be applied or when your Tremor Totem has another chance 
-on breaking Fear.
+on breaking Fear.<br/><br/>
+
+<b>Supported Totems:</b><br/>
+- Tremor Totem (4 seconds)
+- Earthbind Totem (3 seconds)
+- Stoneclaw Totem (1.5 seconds)
+- Mana Tide Totem (3 seconds)
+- Posion Cleansing Totem (5 seconds)
+- Disease Cleansing Totem (5 seconds)
+- Windfury Totem (5 seconds)
+- Flametongue Totem (5 seconds)
+- Magma Totem (2 seconds)
 
 # Showcase
 <img src="http://oi61.tinypic.com/11gj8ea.jpg"/> This is how the default state looks like at the moment.<br/>
