@@ -27,3 +27,7 @@ and everything should be working correctly.<br/><br/>
 I suggest that you don't set the value of this Variable lower than 1.6! Otherwise OmniCC could track your GCD which you don't want)
 
 # How to configure
+
+# Future Plans
+- code cleanup
+- easier configureable
