@@ -457,12 +457,11 @@ function TotemTimers_CreateTotem()
                 end
             elseif TT["totem"] == TT_FIRE_NOVA then
                 local nameTalent, icon, iconx, icony, currRank, maxRank= GetTalentInfo(1,9);
+                at.duration = TotemData[TT["totem"]].duration
 				if ( currRank == 1 ) then
 					at.duration = at.duration - 1 ;
 				elseif ( currRank == 2 ) then
 					at.duration = at.duration - 2 ;
-                else
-                    at.duration = TotemData[TT["totem"]].duration
 				end
                 at.hits = 5
             else
