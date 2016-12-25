@@ -20,7 +20,7 @@ on breaking Fear.<br/><br/>
 <img src="http://oi59.tinypic.com/dytc3q.jpg"/> This is how it looks if you use OmniCC<br/>
 
 # Download
-<a href="https://github.com/MOUZU/TotemTimers-Enhanced/releases/tag/1.1"><b>Download latest Release</b></a>
+<a href="https://github.com/MOUZU/TotemTimers-Enhanced/releases/"><b>Download latest Release</b></a>
 
 # Discussion
 <b>Feenix Forum Thread</b><br/>
