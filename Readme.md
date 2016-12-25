@@ -24,7 +24,7 @@ on breaking Fear.<br/><br/>
 
 # Discussion
 <b>Feenix Forum Thread</b><br/>
-<a href="https://forum.nostalrius.org/viewtopic.php?f=63&t=24422"><b>Nostalrius Forum Thread</b></a>
+<a href="https://forum.nostalrius.org/viewtopic.php?f=63&t=24422"><b>Nostalrius Forum Thread</b></a><br />
 <a href="https://forum.elysium-project.org/index.php?showtopic=27324"><b>Elysium Forum Thread</b></a>
 
 # How to Install
