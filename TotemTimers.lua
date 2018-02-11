@@ -504,12 +504,25 @@ function TotemTimers_CreateTotem()
                     tinsert(at.ticks, tickindex)
                 end
                 -- display the cooldown animation for the very first tick
-                local index
-                if      TT["element"] == TT_EARTH then  index = 1
-                elseif  TT["element"] == TT_FIRE then   index = 2
-                elseif  TT["element"] == TT_WATER then  index = 3
-                elseif  TT["element"] == TT_AIR then    index = 4
+                
+                -- get the element order
+                local order
+                for idx = 1,4 do
+                    if(TTData.order[idx] == TT["element"]) then
+                        order = idx
+                        break
+                    end
                 end
+                
+                -- get the frame of this order
+                local index
+                if      order == 4 then index = 1
+                elseif  order == 3 then index = 2
+                elseif  order == 2 then index = 3
+                elseif  order == 1 then index = 4
+                end
+                
+                
                 getglobal("TotemTimer"..index.."Cooldown"):Hide()
                 CooldownFrame_SetTimer(getglobal("TotemTimer"..index.."Cooldown"), GetTime(), TotemData[TT["totem"]].tick, 1)
             end
@@ -599,7 +612,7 @@ function TotemTimers_OnEvent(event)
 end
 
 function TotemTimers_UpdateButtons()
-
+    
 	local i,inc,j;
 	if( TTData[TT_ALIGN] == TT_LEFT ) then
 		i = 4;
