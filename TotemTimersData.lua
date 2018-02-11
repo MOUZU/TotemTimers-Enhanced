@@ -133,7 +133,7 @@ TotemData[TT_TRANQUIL_AIR] = {
 TotemData[TT_WINDFURY] = {
     icon        = "Spell_Nature_Windfury",
     duration    = 120,
-    tick        = 5,
+    tick        = 10,
 };
 
 TotemData[TT_WINDWALL] = {

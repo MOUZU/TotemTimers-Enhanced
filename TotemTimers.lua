@@ -4,6 +4,7 @@ current author: Grumpey (grumpy.walker@gmail.com)
 new current author:  Zulah
 TotemTimers: Movable Totem Timers and Totem Expiration Notification
 ]]
+TT_AirTotem = { previous = nil; current = nil; }
 
 -- functions
 function TotemTimers( msg )
@@ -468,6 +469,12 @@ function TotemTimers_CreateTotem()
                 at.duration = TotemData[TT["totem"]].duration
                 at.hits = 5
             end
+            if TT["element"] == "Air" then
+                if TT_AirTotem.current then
+                    TT_AirTotem.previous = TT_AirTotem.current
+                end
+                TT_AirTotem.current = TT["totem"]
+            end
 
 			at.Slot_Id = TT["Slot_Id"];	
 			at.spell = TT["spell"];
@@ -620,14 +627,18 @@ function TotemTimers_UpdateButtons()
 		inc = 1;
 	end
 	for j = 1, 4 do
-		getglobal("TotemTimer"..j):SetAlpha(1.0);
-		getglobal("TotemTimer"..j.."Icon"):SetTexture("");
-		getglobal("TotemTimer"..j.."Time"):SetText("");
-        getglobal("TotemTimer"..j.."Tick"):SetFont("Fonts\\FRIZQT__.TTF",12,"OUTLINE")
-		getglobal("TotemTimer"..j.."Tick"):SetText("");
-        getglobal("TotemTimer"..j.."Tick"):SetTextColor(1,1,1)
-        getglobal("TotemTimer"..j.."Cooldown"):Hide()
-		getglobal("TotemTimer"..j).element = nil;
+        if not (getglobal("TotemTimer"..j).element == "Air" and TT_AirTotem.previous and 
+                TT_AirTotem.previous == 'Windfury' and 
+                TT_AirTotem.current ~= TT_AirTotem.previous) then
+            getglobal("TotemTimer"..j):SetAlpha(1.0);
+            getglobal("TotemTimer"..j.."Icon"):SetTexture("");
+            getglobal("TotemTimer"..j.."Time"):SetText("");
+            getglobal("TotemTimer"..j.."Tick"):SetFont("Fonts\\FRIZQT__.TTF",12,"OUTLINE")
+            getglobal("TotemTimer"..j.."Tick"):SetText("");
+            getglobal("TotemTimer"..j.."Tick"):SetTextColor(1,1,1)
+            getglobal("TotemTimer"..j.."Cooldown"):Hide()
+            getglobal("TotemTimer"..j).element = nil;
+        end
 	end
 	for num, element in TTData[TT_ORDER] do
 		-- DEFAULT_CHAT_FRAME:AddMessage("Processing:"..element);

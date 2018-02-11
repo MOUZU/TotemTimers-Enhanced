@@ -11,9 +11,12 @@ on breaking Fear.<br/><br/>
 - Mana Tide Totem (3 seconds)
 - Posion Cleansing Totem (5 seconds)
 - Disease Cleansing Totem (5 seconds)
-- Windfury Totem (5 seconds)
 - Flametongue Totem (5 seconds)
 - Magma Totem (2 seconds)
+- Windfury Totem (10 seconds) **NOTE** Windfury does now display the Windfury Buff-Uptime instead of previously displaying the ticks of when the totem applies the buff on the player
+
+# Update February 2018
+It is now possible to swap the Windfury Totem to another Air Totem and TotemTimers will still display the remaining Uptime of your Windfury Buff until it runs out.
 
 # Showcase
 <img src="http://oi61.tinypic.com/11gj8ea.jpg"/> This is how the default state looks like at the moment.<br/>

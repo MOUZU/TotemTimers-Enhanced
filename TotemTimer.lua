@@ -4,7 +4,7 @@ local Dragging = 0;
 
 function TotemTimer_OnUpdate(arg1)
 	if( this.element ) then
-		local data = TTActiveTotems[this.element];
+		local data    = TTActiveTotems[this.element];
 		if ( data and data.active ) then
 			if ( data.duration < 0 ) then
 				TotemTimers_TotemDeath(data.totem);
@@ -47,28 +47,61 @@ function TotemTimer_OnUpdate(arg1)
 				end
                 
                 -- update tick here
-                if data.ticks and data.ticks[1] then
-                    if data.ticks[1]<= data.duration then
-                        if not IsAddOnLoaded("!OmniCC") then
-                            -- i noticed that omnicc is overwriting the cooldown template and creates a timer itself
-                            local dif = data.duration - data.ticks[1]
-                            dif = math.floor(10*dif)/10
-                            if _G[this:GetName().."Tick"]:GetText() ~= dif then
-                                getglobal(this:GetName().."Tick"):SetText(dif)
+                if (this.element == "Air" and TT_AirTotem.previous == "Windfury" and 
+                    TT_AirTotem.previous ~= TT_AirTotem.current) then
+                    -- windfury update logic
+                    wf_data = TTActiveTotems["Windfury"]
+                    wf_data.duration = wf_data.duration - arg1;
+                    if wf_data.duration < (TotemData["Windfury"].duration - TotemData["Windfury"].tick) then
+                        getglobal(this:GetName().."Tick"):SetText("")
+                        return
+                    end
+                    
+                    if wf_data.ticks and wf_data.ticks[1] then
+                        if wf_data.ticks[1]<= wf_data.duration then
+                            if not IsAddOnLoaded("!OmniCC") then
+                                -- i noticed that omnicc is overwriting the cooldown template and creates a timer itself
+                                local dif = wf_data.duration - wf_data.ticks[1]
+                                dif = math.floor(10*dif)/10
+                                if _G[this:GetName().."Tick"]:GetText() ~= dif then
+                                    getglobal(this:GetName().."Tick"):SetText(dif)
+                                end
                             end
+
+                            if not getglobal(this:GetName().."Cooldown"):IsVisible() then
+                                getglobal(this:GetName().."Cooldown"):Show()
+                            end
+                        else
+                            tremove(TTActiveTotems["Windfury"].ticks,1)
+                            --if not _G[this:GetName().."Cooldown"]:IsVisible() then
+                                CooldownFrame_SetTimer(_G[this:GetName().."Cooldown"], GetTime(), TotemData["Windfury"].tick, 1)
+                            --end
                         end
-                        
-                        if not getglobal(this:GetName().."Cooldown"):IsVisible() then
-                            getglobal(this:GetName().."Cooldown"):Show()
+                    end
+                else
+                    -- default update logic below
+                    if data.ticks and data.ticks[1] then
+                        if data.ticks[1]<= data.duration then
+                            if not IsAddOnLoaded("!OmniCC") then
+                                -- i noticed that omnicc is overwriting the cooldown template and creates a timer itself
+                                local dif = data.duration - data.ticks[1]
+                                dif = math.floor(10*dif)/10
+                                if _G[this:GetName().."Tick"]:GetText() ~= dif then
+                                    getglobal(this:GetName().."Tick"):SetText(dif)
+                                end
+                            end
+
+                            if not getglobal(this:GetName().."Cooldown"):IsVisible() then
+                                getglobal(this:GetName().."Cooldown"):Show()
+                            end
+                        else
+                            tremove(TTActiveTotems[this.element].ticks,1)
+                            --if not _G[this:GetName().."Cooldown"]:IsVisible() then
+                                CooldownFrame_SetTimer(_G[this:GetName().."Cooldown"], GetTime(), TotemData[data.totem].tick, 1)
+                            --end
                         end
-                    else
-                        tremove(TTActiveTotems[this.element].ticks,1)
-                        --if not _G[this:GetName().."Cooldown"]:IsVisible() then
-                            CooldownFrame_SetTimer(_G[this:GetName().."Cooldown"], GetTime(), TotemData[data.totem].tick, 1)
-                        --end
                     end
                 end
-                
 			end
 		end
 	end
