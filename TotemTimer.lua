@@ -49,10 +49,10 @@ function TotemTimer_OnUpdate(arg1)
                 -- update tick here
                 if data.ticks and data.ticks[1] then
                     if data.ticks[1]<= data.duration then
-                        local dif = data.duration - data.ticks[1]
-                        dif = math.floor(10*dif)/10
                         if not IsAddOnLoaded("!OmniCC") then
                             -- i noticed that omnicc is overwriting the cooldown template and creates a timer itself
+                            local dif = data.duration - data.ticks[1]
+                            dif = math.floor(10*dif)/10
                             if _G[this:GetName().."Tick"]:GetText() ~= dif then
                                 getglobal(this:GetName().."Tick"):SetText(dif)
                             end
