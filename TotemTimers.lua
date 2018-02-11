@@ -522,8 +522,6 @@ function TotemTimers_CreateTotem()
                 elseif  order == 1 then index = 4
                 end
                 
-                
-                getglobal("TotemTimer"..index.."Cooldown"):Hide()
                 CooldownFrame_SetTimer(getglobal("TotemTimer"..index.."Cooldown"), GetTime(), TotemData[TT["totem"]].tick, 1)
             end
 
@@ -628,6 +626,7 @@ function TotemTimers_UpdateButtons()
         getglobal("TotemTimer"..j.."Tick"):SetFont("Fonts\\FRIZQT__.TTF",12,"OUTLINE")
 		getglobal("TotemTimer"..j.."Tick"):SetText("");
         getglobal("TotemTimer"..j.."Tick"):SetTextColor(1,1,1)
+        getglobal("TotemTimer"..j.."Cooldown"):Hide()
 		getglobal("TotemTimer"..j).element = nil;
 	end
 	for num, element in TTData[TT_ORDER] do

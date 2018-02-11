@@ -57,6 +57,10 @@ function TotemTimer_OnUpdate(arg1)
                                 getglobal(this:GetName().."Tick"):SetText(dif)
                             end
                         end
+                        
+                        if not getglobal(this:GetName().."Cooldown"):IsVisible() then
+                            getglobal(this:GetName().."Cooldown"):Show()
+                        end
                     else
                         tremove(TTActiveTotems[this.element].ticks,1)
                         --if not _G[this:GetName().."Cooldown"]:IsVisible() then
