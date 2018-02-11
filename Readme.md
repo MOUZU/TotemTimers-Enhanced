@@ -28,7 +28,8 @@ It is now possible to swap the Windfury Totem to another Air Totem and TotemTime
 # Discussion
 <b>Feenix Forum Thread</b><br/>
 <a href="https://forum.nostalrius.org/viewtopic.php?f=63&t=24422"><b>Nostalrius Forum Thread</b></a><br />
-<a href="https://forum.elysium-project.org/index.php?showtopic=27324"><b>Elysium Forum Thread</b></a>
+<a href="https://forum.elysium-project.org/index.php?showtopic=27324"><b>Elysium Forum Thread</b></a><br /> 
+<a href="https://forum.lightshope.org/viewtopic.php?f=34&t=10550"><b>Light's Hope Forum Thread</b></a>
 
 # How to Install
 If you download the TotemTimers.rar you only have to place the Folder in the usual place (World of Warcraft/Interface/AddOns)
