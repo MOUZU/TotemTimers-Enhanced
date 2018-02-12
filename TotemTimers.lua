@@ -503,9 +503,9 @@ function TotemTimers_CreateTotem()
             
             if TotemData[TT["totem"]].tick then
                 at.ticks = {}
-                local _, _, latency = GetNetStats()
-                latency = latency / 100
-                local tickindex = TotemData[TT["totem"]].duration - latency
+                --local _, _, latency = GetNetStats()
+                --latency = latency / 100
+                local tickindex = TotemData[TT["totem"]].duration
                 while tickindex > 0 do
                     tickindex = tickindex - TotemData[TT["totem"]].tick
                     tinsert(at.ticks, tickindex)
