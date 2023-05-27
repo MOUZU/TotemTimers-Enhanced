@@ -50,11 +50,12 @@ function TotemTimers( msg )
 		if( arg[2] ) then
 			for j = 2, 5 do
 				if( arg[j] ) then
-					arg[j] = string.upper(string.sub(arg[j],1,1)) .. string.lower(string.sub(arg[j],2));
-					if( TotemTimers_ValidElement(arg[j]) ) then
-						TTData[TT_ORDER][j-1] = arg[j];
+					local element = TotemTimers_GetValidElement(arg[j]);
+					if( element ) then
+						TTData[TT_ORDER][j-1] = element;
 					else 
 						TotemTimers_PrintUsage(TT_SLASH[TT_ORDER]);
+						break;
 					end
 				else
 					TTData[TT_ORDER][j-1] = nil;
@@ -148,19 +149,22 @@ function TotemTimers_PrintUsage(usage)
 
 end
 
-function TotemTimers_ValidElement(element)
+function TotemTimers_GetValidElement(element)
 	if(element) then
-		if( element == TT_EARTH or
-			element == TT_FIRE or
-			element == TT_AIR or
-			element == TT_WATER ) then
-			return 1;
+		element = string.lower(element);
+		if (element == string.lower(TT_EARTH)) then
+			return TT_EARTH;
+		elseif (element == string.lower(TT_FIRE)) then
+			return TT_FIRE;
+		elseif (element == string.lower(TT_AIR)) then
+			return TT_AIR;
+		elseif (element == string.lower(TT_WATER)) then
+			return TT_WATER;
 		end
-
 	end
 	return nil;
-
 end
+
 function TotemTimers_SetOrientation()
 	if(TTData[TT_ARRANGE] == TT_VERTICAL) then
 		TotemTimer2:ClearAllPoints();
