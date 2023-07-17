@@ -557,9 +557,9 @@ function TotemTimers_SetupHooks()
 	end;
 	--Additions for hooking CastSpellByName
 	TT_HookFunctions["CastSpellByName"] = CastSpellByName;
-	CastSpellByName = function(Spell_Name)
+	CastSpellByName = function(Spell_Name,onself)
 		TotemTimers_CastSpellByName(Spell_Name);
-	TT_HookFunctions["CastSpellByName"](Spell_Name);
+		TT_HookFunctions["CastSpellByName"](Spell_Name,onself);
 	end;
 	--Additions for hooking UseInventoryItem
 	TT_HookFunctions["UseInventoryItem"] = UseInventoryItem;
